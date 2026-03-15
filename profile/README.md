@@ -19,38 +19,7 @@
 
 ## How It Works
 
-```mermaid
-flowchart LR
-    subgraph K8S["☸ Kubernetes Cluster"]
-        W1[Workload A]
-        W2[Workload B]
-        W3[Workload C]
-    end
-
-    subgraph OPT["🧠 Optimizer Controller"]
-        direction TB
-        SA["📈 Statistical Analysis\nHolt-Winters · Trend · Forecast"]
-        PO["⚖️ Pareto Optimization\nCost · Performance · Reliability"]
-        SL["🛡️ Safety Layer\nCircuit Breaker · Rollback · SLA"]
-        PE["📋 Policy Engine"]
-
-        SA --> PO --> SL --> PE
-    end
-
-    subgraph OUT["📦 Output"]
-        GIT["GitOps PR\nKustomize / Helm patch"]
-        MON["Grafana Dashboard\nPrometheus Metrics"]
-    end
-
-    K8S -- "metrics" --> SA
-    PE -- "recommendations" --> GIT
-    OPT -- "observability" --> MON
-    GIT -- "applies" --> K8S
-
-    style K8S fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
-    style OPT fill:#f0fdf4,stroke:#22c55e,color:#14532d
-    style OUT fill:#fefce8,stroke:#eab308,color:#713f12
-```
+![Workflow](assets/workflow.png)
 
 ---
 
